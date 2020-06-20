@@ -1,0 +1,36 @@
+{
+  "name": "vue-phaser3",
+  "version": "2.1.1",
+  "description": "Template for working with Phaser 3 in a Vue project",
+  "author": "Markus Appel <markospoparkos@gmail.com>",
+  "scripts": {
+    "serve": "serve dist",
+    "build": "vue-cli-service build --modern",
+    "dev": "vue-cli-service serve"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "mathjs": "^7.0.1",
+    "phaser": "^3.23.0",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.4.1",
+    "@vue/cli-service": "^4.4.1",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "serve": "^11.3.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "keywords": [
+    "vue",
+    "phaser",
+    "webpack",
+    "boilerplate"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Sun0fABeach/vue-phaser3.git"
+  }
+}
