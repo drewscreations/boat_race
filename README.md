@@ -65,3 +65,4 @@ Vuex</a> store instance. It works like an event emitter, but can also hold
 state. While the store is nicely integrated into your Vue components, on the
 Phaser side you'll have to use the raw store
 <a href="https://vuex.vuejs.org/api/#vuex-store-instance-properties" target="_blank">API</a>.
+"# boat_race" 
