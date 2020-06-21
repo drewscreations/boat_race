@@ -26,25 +26,7 @@ export default class GameScene extends Scene {
     create () {
         const maxEnemyBoats = 4
         this.add.image(400, 300, 'sky');
-        /*
-        bouy ordering:
-        -----------------------
-                o4
-            o2       o3
-        
-        o1
-        -----------------------
-        */
-
-        // const my_dict = {
-        //     1:[{4:1}],//right
-        //     2:[{4:2}],//left
-        //     3:[{2:1},{3:1}],//right,left
-        //     4:[{2:2},{3:2}],//left,right
-        //     5:[{4:3}],//right
-        //     6:[{4:4}],//left
-        //     7:[{1:1}]//right
-        // }
+        this.add.text(10, 10, 'left/right to rotate boat\nup/down to rotate boom', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif',color: '#ffff00' });
         //-----------------------level creation-----------------------
         //spawn bouys
         this.bouy1 = new Bouy(this, 50, 500, 1);
@@ -134,6 +116,16 @@ export default class GameScene extends Scene {
         if(this.playerBoat.hull.laps>=1){
             this.scene.start('WinScene')
         }
+        //all checkpoints invisible
+        this.path1Checkpoints.map((checkpoint)=>{
+            checkpoint.map((piece)=>{
+                piece.visible=false
+            })
+        })
+        //player's active checkpoint - visible
+        this.path1Checkpoints[this.playerBoat.hull.currentCheckpoint-1].map((piece)=>{
+            piece.visible=true
+        })
     }
     
 }

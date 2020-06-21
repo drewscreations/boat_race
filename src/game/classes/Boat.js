@@ -29,8 +29,7 @@ export default class Boat {
         //console.log('constructing boat');
         const hull = new Hull(currentScene, x, y);
         const boom = new Boom(currentScene, x, y);
-        //hull.setCollideWorldBounds(true);
-        //hull.body.onWorldBounds = true // enable worldbounds collision event
+       
         hull.setScale(currentScene.sceneScale);
         hull.setRotation(-Math.pi/2);// the image I am using is facing right, so I need to rotate it to face up
         hull.speed = 40; // boat speed, 40 is good
@@ -47,13 +46,15 @@ export default class Boat {
     
         this.currentScene=currentScene;
             if(!this.ai){
-            this.boatLiftText = currentScene.add.text(10, 10, 'Lift: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
-            this.boatDragText = currentScene.add.text(10, 50, 'Drag: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
-            this.boatAngleText = currentScene.add.text(10, 100, 'BoatAngle: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
-            this.windAngleText = currentScene.add.text(10, 150, 'WindAngle: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
-            this.attackAngleText = currentScene.add.text(10, 200, 'AttackAngle: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
-            this.currentCheckpointText = currentScene.add.text(10, 250, 'Checkpoint: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
-            this.hull.setTint('0xfff000')
+            this.boatLiftText = currentScene.add.text(10, 50, 'Lift: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
+            this.boatDragText = currentScene.add.text(10, 100, 'Drag: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
+            this.boatAngleText = currentScene.add.text(10, 150, 'BoatAngle: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
+            this.windAngleText = currentScene.add.text(10, 200, 'WindAngle: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
+            this.attackAngleText = currentScene.add.text(10, 250, 'AttackAngle: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' });
+            this.currentCheckpointText = currentScene.add.text(300, 10, 'Checkpoint: 0', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif',color: '#00ff00',  backgroundColor: 'rgba(0,255,255,0.25)' });
+            this.hull.setTint('0xfff000');
+            this.hull.setCollideWorldBounds(true);
+            this.hull.body.onWorldBounds = true // enable worldbounds collision event
         }
         this.messagesText = currentScene.add.text(10, 250, '', { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' }); 
         currentScene.physics.add.overlap(this.hull, null,this.moveCheckpoint(2))//getting called too early
@@ -118,11 +119,11 @@ export default class Boat {
         
     }
     updateText(drag, lift, boatAngle, windAngle, attackAngle){
-        this.boatDragText.text = `Drag: ${drag}`;
-        this.boatLiftText.text = `Lift: ${lift}`;
-        this.boatAngleText.text = `BoatAngle: ${boatAngle}`;
-        this.windAngleText.text = `WindAngle: ${windAngle}`;
-        this.attackAngleText.text = `AttackAngle: ${attackAngle}`;
+        this.boatDragText.text = `Drag: ${Math.round(drag,2)}`;
+        this.boatLiftText.text = `Lift: ${Math.round(lift,2)}`;
+        this.boatAngleText.text = `BoatAngle: ${Math.round(boatAngle,2)}`;
+        this.windAngleText.text = `WindAngle: ${Math.round(windAngle,2)}`;
+        this.attackAngleText.text = `AttackAngle: ${Math.round(attackAngle,2)}`;
         this.currentCheckpointText.text = `Checkpoint: ${this.hull.currentCheckpoint}`;
         //this.messagesText.text = `AutoToggle: ${this.autoToggle}`;
     }

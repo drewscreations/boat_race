@@ -7,6 +7,7 @@ import checkPoint from '@/game/assets/images/checkPoint.png'
 // import bomb from '@/game/assets/bomb.png'
 import thudMp3 from '@/game/assets/thud.mp3'
 import thudOgg from '@/game/assets/thud.ogg'
+import courseInstruction from '@/game/assets/images/courseInstructions.png'
 
 export default class BootScene extends Phaser.Scene {
   constructor() {
@@ -37,6 +38,7 @@ export default class BootScene extends Phaser.Scene {
     this.load.image('bouy',bouy);
     this.load.image('boom',boom);
     this.load.image('checkPoint',checkPoint);
+    this.load.image('courseInstruction',courseInstruction);
     }
 
   loadSpriteSheets() {

@@ -25,7 +25,7 @@ export default class Bouy extends Phaser.Physics.Arcade.Sprite{
         currentScene.physics.add.existing(this);
         this.setScale(currentScene.sceneScale);
         this.index = index;
-        this.checkpointText = currentScene.add.text(this.x, this.y, `${index}`, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' , color: '#000000' });
+        //this.checkpointText = currentScene.add.text(this.x, this.y, `${index}`, { fontFamily: 'Georgia, "Goudy Bookletter 1911", Times, serif' , color: '#000000' });
         this.currentScene = currentScene
         
     }
